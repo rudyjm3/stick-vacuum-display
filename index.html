@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <title>Charging Circle</title>
+</head>
+<body>
+
+   <div id="vaccum-unit">
+      <section id="speed-selection-section">
+         <div class="speed-selection-wrapper" for="speed-selection-switch">
+            <input type="range" name="speed-selection-switch" id="speed-selection-switch" min="0" max="2" value="0" step="1" />
+            <span class="min-speed-selector speed-selector">MIN</span>
+            <span class="std-speed-selector speed-selector">STD</span>
+            <span class="max-speed-selector speed-selector">MAX</span>
+         </div>   
+      </section>
+
+      <section id="display-container">
+         <div class="charge-ring-wrapper">
+            <div class="charge-circle" id="circle-1" data-charge="25" ></div>
+            <div class="charge-circle" id="circle-2" data-charge="50" ></div>
+            <div class="charge-circle" id="circle-3" data-charge="75" ></div>
+            <div class="charge-circle" id="circle-4" data-charge="100"></div>
+            <div class="display-charging-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div id="run-time-display"></div>
+         </div>
+
+         <div id="speed-display-section">
+            <div class="speed-icon-wrapper">
+               <div class="min-speed speed-icons-display"><i class="fa-brands fa-superpowers"></i></div>
+               <div class="std-speed speed-icons-display"><i class="fa-solid fa-fan"></i></div>
+               <div class="max-speed speed-icons-display"><i class="fa-solid fa-hurricane"></i></div>
+            </div>
+         </div>
+      </section>         
+
+      <section id="power-section">
+         <label class="power-btn-wrapper">
+            <input type="checkbox" name="power" id="power-chk-box">
+            <span class="power-btn-icon"><i class="fa-solid fa-power-off"></i></span>
+         </label>
+         <label class="charge-btn-wrapper">
+            <input type="checkbox" name="charge" id="charge-chk-box">
+            <span class="charge-btn-icon"><i class="fa-solid fa-plug-circle-bolt"></i></span>
+         </label>
+         <!-- <button type="button" id="charge-btn">Charge</button> -->
+      </section>
+
+   </div>
+
+   
+   
+   <!-- <script src="main.js"></script> -->
+   <!-- <script src="mainTest.js"></script> -->
+   <script src="/test_js/testing.js"></script>
+</body>
+</html>

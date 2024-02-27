@@ -1,0 +1,295 @@
+@import url('reset.css');
+
+body {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background-color: #333;
+   height: 100%;
+}
+
+section {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+}
+
+#display-container {
+   gap: 30px;
+   /* margin-bottom: 30px; */
+}
+
+/* +++++ SPEED SELECTION STYLING +++++ */
+.speed-selection-wrapper {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   width: 400px;
+}
+.speed-selector {
+   color: white;
+}
+#speed-selection-switch {
+   -webkit-appearance: none;
+   width: 400px;
+   height: 45px;
+   border-radius: 50px;
+   background: #222;
+   outline: none;
+   opacity: 0.7;
+   -webkit-transition: .2s;
+   transition: opacity .2s;
+}
+#speed-selection-switch:hover {
+   opacity: 1;
+}
+#speed-selection-switch::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 95px;
+   height: 50px;
+   border-radius: 50px;
+   border: 2px solid #222;
+   background: #333;
+   cursor: pointer;
+}
+/* #speed-selection-switch::-moz-range-thumb {
+   width: 95px;
+   height: 45px;
+   border-radius: 50px;
+   background: #333;
+   cursor: pointer;
+} */
+.speed-selector {
+   color: #222;
+   font-weight: 600;
+   font-size: 1.5rem;
+}
+/* +++++ END SPEED SELECTION STYLING +++++ */
+
+/* +++++ DISPLAY UI STYLING +++++ */
+.charge-ring-wrapper {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #333;
+   width: 300px;
+   height: 300px;
+   border-radius: 100%;
+   margin-bottom: 30px;
+   opacity: 1;
+}
+.charge-circle {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 292px;
+   height: 292px;
+   background-color: transparent;
+   border-radius: 100%;
+   border: 8px solid transparent;
+   opacity: 0;
+}
+#circle-1 {
+   /* background-color: red; */
+   top: 1px;
+   left: 1px;
+   border-top: 8px solid rgb(73, 179, 255);
+   transform: rotate(-45deg); 
+   /* animation: blink-animation 2.5s cubic-bezier(0.36, 0, 0.66, -0.56) 0s infinite normal none; */
+}
+#circle-2 {
+   /* background-color: blue; */
+   top: 1px;
+   right: 1px;
+   border-right: 8px solid rgb(73, 179, 255);
+   transform: rotate(-45deg);
+   /* animation: blink-animation 2.5s cubic-bezier(0.36, 0, 0.66, -0.56) 0s infinite normal none; */
+}
+#circle-3 {
+   /* background-color: yellow; */
+   bottom: 1px;
+   right: 1px;
+   border-bottom: 8px solid rgb(73, 179, 255);
+   transform: rotate(-45deg);
+   /* animation: blink-animation 2.5s cubic-bezier(0.36, 0, 0.66, -0.56) 0s infinite normal none; */
+}
+#circle-4 {
+   /* background-color: green; */
+   bottom: 1px;
+   left: 1px;
+   border-left: 8px solid rgb(73, 179, 255);
+   transform: rotate(-45deg);
+   /* animation: blink-animation 2.5s cubic-bezier(0.36, 0, 0.66, -0.56) 0s infinite normal none; */
+}
+.charging-animation {
+   animation: blink-animation 1s ease 0s 1 normal forwards;
+}
+.charging-animation2 {
+   animation: blink-animation 1s ease 1s 1 normal forwards;
+}
+.charging-animation3 {
+   animation: blink-animation 1s ease 2s 1 normal forwards;
+}
+.charging-animation4 {
+   animation: blink-animation 1s ease 3s 1 normal forwards;
+}
+
+/* BLINK ANIMATION */
+@keyframes blink-animation{
+
+   from {opacity: 0;}
+  to {opacity: 1;}
+ }
+ #run-time-display {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 16%;
+   width: 100%;
+   font-size: 8rem;
+   font-weight: 600;
+   /* color: rgb(73, 179, 255); */
+   color: #FFFCFF;
+ }
+ .display-charging-icon {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 7%;
+   width: 100%;
+   height: 25px;
+   font-size: 25px;
+   color: rgb(73, 179, 255);
+   opacity: 0;
+ }
+
+
+ /* ===== SPEED DISPLAY ===== */
+#speed-display-section {
+   margin-bottom: 25px;
+} 
+.speed-icon-wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 350px;
+}
+.speed-icons-display {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 52px;
+   width: 55px;
+   height: auto;
+   color: #dadada;
+}
+.min-speed, .std-speed, .max-speed {
+   opacity: 0;
+   transition: all 0.4s ease;
+}
+.active-speed {
+   opacity: 1;
+}
+.min-speed > i {
+   transform: rotate(25deg);
+}
+.min-speed::after {
+   content: "MIN";
+   position: relative;
+   top: 20px;
+   right: 25px;
+   padding: 4px;
+   font-size: 10px;
+   font-weight: 600;
+   background-color: #333;
+   border-radius: 4px;
+}
+.standard-speed > i {
+   transform: rotate(37deg);
+}
+.standard-speed::after {
+   content: "STD";
+   position: relative;
+   top: 20px;
+   right: 25px;
+   padding: 4px;
+   font-size: 10px;
+   font-weight: 600;
+   background-color: #333;
+   border-radius: 4px;
+}
+.max-speed > i {
+   transform: rotate(135deg);
+}
+.max-speed::after {
+   content: "MAX";
+   position: relative;
+   top: 20px;
+   right: 25px;
+   padding: 4px;
+   font-size: 10px;
+   font-weight: 600;
+   background-color: #333;
+   border-radius: 4px;
+}
+
+/* +++++ END DISPLAY UI STYLING +++++ */
+
+
+/* +++++ POWER SECTION STYLING +++++ */
+
+.power-btn-wrapper, .charge-btn-wrapper {
+   position: relative;
+   display: inline-block;
+   justify-content: center;
+   align-items: center;
+   width: 95px;
+   height: 45px;
+   border-radius: 30px;
+   padding: 5px;
+   background-color: #222;
+   color: #333;
+   cursor: pointer;
+}
+
+.power-btn-wrapper #power-chk-box {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+.charge-btn-wrapper #charge-chk-box {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+.power-btn-icon, .charge-btn-icon  {
+   position: relative;
+   top: -20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 30px;
+   transition: color 0.7s ease;
+}
+.powerBtn-active {
+   color: rgb(73, 179, 255);
+}
+.btn-animation {
+   animation: btn-icon-animation 5s ease-in-out 0s infinite normal forwards;
+}
+@keyframes btn-icon-animation{
+   from {color: #333}
+   to {color: rgb(73, 179, 255);}
+ }
+
+/* +++++ END POWER SECTION STYLING +++++ */
